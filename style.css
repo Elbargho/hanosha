@@ -13,6 +13,9 @@ body {
 
 body {
 	font-family: 'assistant', serif;
+}
+
+div{
 	direction: rtl;
 }
 
