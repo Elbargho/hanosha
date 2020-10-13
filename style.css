@@ -1,0 +1,693 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'assistant', serif;
+	direction: rtl;
+}
+
+.header,
+.footer {
+	width: 100%;
+}
+
+.header {
+	font-size: 76px;
+	font-family: 'suez one', serif;
+	color: white;
+	height: 100px;
+	background-color: #e31d1a;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	display: flex;
+	direction: ltr;
+	text-align: center;
+}
+
+.icons {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+}
+
+.icons:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.icons img {
+	width: 70px;
+	padding: 10px;
+}
+
+.headerLogo {
+	flex: 1;
+	margin-right: 300px;
+	direction: rtl;
+}
+
+.centerOfSectionContainer {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0px;
+	top: -100px;
+	visibility: hidden;
+}
+
+.footer {
+	background: url(photos/footerLogo.png);
+	background-size: 70px;
+	background-position-x: center;
+	bottom: 0;
+	left: 0;
+	height: 18px;
+	position: absolute;
+}
+
+.content {
+	height: 100%;
+}
+
+.section {
+	min-height: 100%;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	background-color: #223977;
+	padding: 40px;
+}
+
+.section2,
+.section3 {
+	padding-top: 70px;
+}
+
+a:hover,
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	box-shadow: inset 0 0 2px black;
+}
+
+button,
+input,
+select {
+	outline: none;
+	border: none;
+}
+
+.archive {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 30px 0px;
+	flex-wrap: wrap;
+}
+
+.archiveBtn {
+	padding: 0px 12px 5px;
+	background-color: #e31d1a;
+	border: 0px;
+	color: white;
+	border-radius: 1px;
+	margin-top: 20px;
+}
+
+.byDate {
+	padding: 5px;
+	background-color: #ced8e5;
+	border-radius: 1px;
+}
+
+.byDate h2,
+h3,
+input {
+	display: inline;
+}
+
+.date_form {
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.date_form input {
+	margin: 10px;
+	width: 165px;
+	height: 30px;
+}
+
+.date_form button {
+	margin: 10px;
+	width: 135px;
+	height: 30px;
+}
+
+h1 {
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.h2-section1,
+.or {
+	font-size: 28px;
+	color: #ef8a32;
+	font-weight: 600;
+	margin: 20px;
+}
+
+.or {
+	margin: 0px 75px;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.allOptions {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 30px;
+}
+
+.optionsRowDesktop {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.chartTitle {
+	padding: 0px 7px 4px 7px;
+	width: fit-content;
+	display: inline;
+}
+
+.sort {
+	float: left;
+	display: flex;
+	padding-top: 10px;
+}
+
+.sortWord {
+	display: inline;
+	margin-left: 7px;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #e31d1a;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.option {
+	text-align: right;
+	width: 20%;
+	padding: 0px 10px 25px 15px;
+	position: relative;
+	vertical-align: baseline;
+	border: 4px solid #223977;
+	background-color: #ced8e5;
+	box-shadow: 0px 0px 10px;
+	display: flex;
+}
+
+.option1 {
+	background-color: #e31d1a;
+}
+
+.option2 {
+	background-color: #ffc565;
+}
+
+.option3 {
+	background-color: #ef8a32;
+}
+
+.top {
+	font-size: 38px;
+	height: 15vw;
+}
+
+.bottom {
+	font-size: 24px;
+}
+
+.option:hover {
+	border: 1px solid #223977;
+	padding: 0px 10px 25px 21px;
+	box-shadow: 1px;
+	cursor: pointer;
+}
+
+.explanationContainer {
+	display: flex;
+	position: absolute;
+	direction: ltr;
+	left: 10px;
+	bottom: 10px;
+}
+
+.explanation {
+	font-size: medium;
+	margin-left: 2px;
+	text-decoration: underline;
+}
+
+.explanationContainer:hover {
+	color: blue;
+}
+
+.explanationIcon {
+	margin-right: 2px;
+	margin-top: 4px;
+	width: 15px;
+	height: 15px;
+	background: url(photos/information-icon.ico);
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+}
+
+.tooltiptext {
+	visibility: hidden;
+	direction: rtl;
+	width: 270px;
+	background-color: black;
+	color: #fff;
+	border-radius: 6px;
+	padding: 5px;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	font-size: 18px;
+	left: 25px;
+	bottom: 20px;
+}
+
+.arch {
+	position: relative;
+	display: flex;
+	width: 200px;
+	bottom: 52px;
+	left: 200px;
+}
+
+h4 {
+	font-size: 17px;
+}
+
+.dateErrMsg {
+	visibility: hidden;
+	min-width: 250px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 100000;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.errMsgContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.redBoldText {
+	font-weight: bold;
+	color: #e31d1a;
+	display: inline;
+}
+
+.explanationContainer:hover .tooltiptext {
+	visibility: visible;
+}
+
+.explanationIcon:hover .tooltiptext {
+	visibility: visible;
+}
+
+.optionContainer {
+	background-color: #ced8e5;
+	padding: 20px;
+}
+
+.chartContainer {
+	width: 100%;
+	height: 300px;
+	box-shadow: -2px 2px 4px;
+	margin-top: 15px;
+	border-left: 2px solid black;
+}
+
+.headerOffset {
+	background-color: #223977;
+	height: 40px;
+	margin: -20px -20px 0px -20px;
+}
+
+.pieQuarter {
+	width: 25%;
+}
+
+.pieThird {
+	width: 33.3%;
+}
+
+.pieContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.close {
+	width: fit-content;
+	display: block;
+	position: relative;
+	right: -5px;
+}
+
+.close:hover {
+	color: #e31d1a;
+}
+
+.checkChanceContainer {
+	padding: 20px 15px 0px 15px;
+}
+
+.tableRowsNum {
+	padding: 20px 15px 12px;
+}
+
+.tableRowsNum {
+	display: flex;
+}
+
+.tableRowsNumSelect {
+	margin-right: 20px;
+}
+
+.checkChanceTitle {
+	margin-bottom: 5px;
+}
+
+.checkChanceContainer input {
+	width: 85px;
+	height: 35px;
+	border-radius: 7px;
+	border: 0px;
+	font-size: 17px;
+	text-align: center;
+	margin-left: 10px;
+	direction: ltr;
+}
+
+.checkChanceContainer input:last-child {
+	margin-left: 0px;
+}
+
+.lastInputContainer {
+	display: inline-block;
+}
+
+.lastInputIsOptional {
+	position: absolute;
+	margin-top: -20px;
+	margin-right: 5px;
+	font-weight: 600;
+}
+
+.checkChanceButton {
+	width: 100px;
+	height: 35px;
+	background-color: #e31d1a;
+	font-size: 24px;
+	border: 0px;
+	border-radius: 2px;
+	margin-right: 25px;
+	position: relative;
+	bottom: -3px;
+}
+
+.chanceNumber {
+	color: #e31d1a;
+	display: inline;
+}
+
+.chanceRate {
+	color: #ef8a32;
+	display: inline;
+}
+
+.archiveTable,
+.chanceTable {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.row,
+.headerRow,
+.lotNumbers,
+.lotID,
+.lotDate,
+.strongNumContainer,
+.lotNumbers,
+.lotNum,
+.lotRank,
+.lotChance,
+.chanceFac,
+.chanceRep {
+	display: flex;
+	justify-content: center;
+}
+
+.lotID,
+.lotDate,
+.strongNumContainer,
+.lotNumbers,
+.lotRank,
+.lotChance,
+.chanceFac,
+.chanceRep {
+	align-items: center;
+	text-align: center;
+}
+
+.archiveTable .row,
+.archiveTable .headerRow {
+	width: 45%;
+	margin-bottom: 5px;
+}
+
+.archiveTable .row {
+	min-height: 75px;
+}
+
+.archiveTable .lotID {
+	width: 13%;
+}
+
+.archiveTable .lotDate {
+	width: 24%;
+}
+
+.archiveTable .strongNumContainer {
+	width: 12%;
+}
+
+.archiveTable .lotNumbers {
+	width: 50%;
+}
+
+.chanceTable .row,
+.chanceTable .headerRow {
+	width: 55%;
+	margin-bottom: 5px;
+}
+
+.chanceTable .row {
+	min-height: 75px;
+}
+
+.chanceTable .lotRank {
+	width: 10.5%;
+}
+
+.chanceTable .lotChance {
+	width: 19%;
+}
+
+.chanceTable .strongNumContainer {
+	width: 9.5%;
+}
+
+.chanceTable .lotNumbers {
+	width: 40%;
+}
+
+.chanceFac,
+.chanceRep {
+	width: 10%;
+}
+
+.padUp {
+	padding-top: 20px;
+}
+
+.lotID,
+.lotDate,
+.strongNumContainer,
+.lotNumbers,
+.lotRank,
+.lotChance,
+.chanceFac,
+.chanceRep {
+	margin: 0px 2px;
+}
+
+.data {
+	background-color: #ececec;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.strongNum {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: #99d4f0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.lotNumbers.data {
+	justify-content: space-evenly;
+	color: white;
+}
+
+.lotNum {
+	width: 40px;
+	height: 40px;
+	background-color: #e31d1a;
+	border-radius: 20px;
+	align-items: center;
+}
+
+.tableShowMore {
+	margin-top: 20px;
+	padding: 0px 50px;
+	height: 42px;
+	border-radius: 8px;
+	background-color: #223977;
+	color: #fff;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.ten {
+	display: inline;
+	position: relative;
+	top: 1px;
+}
+
+.tableShowMore:active {
+	box-shadow: inset 0 0 4px black;
+}
+
+@media only screen and (max-width: 750px) {
+
+	.option {
+		width: 33%;
+	}
+
+	.archive {
+		flex-direction: column;
+	}
+
+	.date_form {
+		flex-direction: column;
+	}
+
+	.archiveBtn {
+		margin-top: 0px;
+	}
+
+	h2 {
+		margin: 5px;
+	}
+}

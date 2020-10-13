@@ -1,0 +1,256 @@
+<html>
+
+<head>
+	<title>hanosha.com - כל מידע סטטסטי, הסתברותי ועוד שתרצה על הלוטו - ניתוח תוצאות הלוטו</title>
+	<link rel="icon" href="photos/stats-icon2.png">
+	<link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Suez+One&display=swap" rel="stylesheet">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js" async></script>
+	<script src="js/htmlBuilder.js" async></script>
+	<script src="js/archiveBuilder.js" async></script>
+	<script src="js/statsBuilder.js" async></script>
+	<script src="js/chartBuilder.js" async></script>
+	<script src="js/tester&AI.js" async></script>
+</head>
+
+<body>
+	<div id="header" class="header">
+		<a class="icons" id="icon1Container" style="background-color: #223977;" onclick="scrollToDiv('content')">
+			<img src="photos/home-icon.png" id="icon1">
+		</a>
+		<a class="icons" id="icon2Container" onclick="scrollToDiv('section2')" style="visibility: hidden;">
+			<img src="photos/grid-icon.png" id="icon2">
+		</a>
+		<a class="icons" id="icon3Container" onclick="scrollToDiv('section3')" style="visibility: hidden;">
+			<img src="photos/stats-icon.png" id="icon3">
+		</a>
+		<div class="headerLogo" id="headerLogo">הנוסחה!</div>
+	</div>
+	<div class="content" id="content" style="padding-top: 100px;">
+		<a href="#" download="content.txt" id="a" style="visibility: hidden"></a>
+		<div class="errMsgContainer">
+			<div id="dateErrMsg" class="dateErrMsg"></div>
+		</div>
+		<div class="section section1" id="section1">
+			<div class="centerOfSectionContainer">
+				<div id="centerOfSection1"></div>
+			</div>
+			<h1>בחר את התוצאות מהארכיון לדגימה:</h1>
+			<div class="archive">
+				<div class="byDate">
+					<h2 class="h2-section1">לפי תאריך:</h2>
+					<div class="date_form">
+						<div>
+							<h3>מתאריך:</h3>
+							<input type="date" id="fromDate" value="2011-03-05" min="2011-03-05">
+						</div>
+						<div>
+							<h3>עד תאריך:</h3>
+							<input type="date" id="toDate" min="2011-05-05">
+						</div>
+						<div>
+							<button onclick="loadArchive(1)">חפש</button>
+						</div>
+					</div>
+				</div>
+				<h2 class="or">או</h2>
+				<button class="archiveBtn" onclick="loadArchive(2)">
+					<h1>כל הארכיון</h1>
+					<h3>מ 05/03/2011</h3>
+				</button>
+				<h2 class="or">או</h2>
+				<button class="archiveBtn" onclick="loadArchive(3)">
+					<h1>בחירה חכמה</h1>
+					<div style="display: flex">
+						<h4 style="flex: 1">מ 13/04/2019 עד היום</h4>
+						<div class="explanationIcon" style="margin-top: 3px"><span class="tooltiptext arch">בחירת מדגם רלוונטי ביותר למקסם סיכויי זכיה</span></div>
+					</div>
+				</button>
+			</div>
+			<div class="description">
+				<!-- fadi -->
+			</div>
+			<div class="footer"></div>
+		</div>
+	</div>
+	<div id="include2" style="display: none;">
+		<div class="content">
+			<div class="section section2" id="section2">
+				<div class="centerOfSectionContainer">
+					<div id="centerOfSection2"></div>
+				</div>
+				<h1>בחר את סוג הדגימה:</h1>
+				<div class="allOptions" id="allOptions">
+					<div class="optionsRowDesktop">
+						<div class="option top option1">
+							<div id="option1" onclick="loadIntoSection3('1')">בדיקת סיכויי זכייה והגרלות חמות ביותר</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">בדיקת סיכויי זכיה לפי ארבעה מודלים מרכזיים (עם השקלול המתאים).<br>
+									מוצגת גם טבלה של ההגרלות החמות ביותר.<br>
+									<div class="redBoldText">שים לב:</div> מודל זה רלוונטי רק עבור "בחירה חכמה" של תוצאות מהארכיון
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top option2">
+							<div id="option2" onclick="loadIntoSection3('2')">מספרים חמים ביותר</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים לכל מספר (1 עד 37) את כמות ההופעות שלו בהגרלות זוכות.
+									<br>
+									<div class="redBoldText">TIP:</div> לחץ על המספר כדי לראות את אחוז המיקומים שלו בהגרלות
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top option3">
+							<div id="option3" onclick="loadIntoSection3('3')">מספרים חמים ביותר לפי מיקום</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בהסתכלות על ההגרלות כממוינות, בוחנים לכל מיקום (1 עד 6) ולכל מספר (1 עד 37) את כמות ההופעות שלו במיקום זה בהגרלות זוכות.
+									<br>מספר <div class="redBoldText">במיקום הראשון</div> הוא הקטן ביותר בהגרלה
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option4" onclick="loadIntoSection3('4')">הפרשי מספרים במיקומים עוקבים חמים ביותר</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בהסתכלות על ההגרלות כממוינות, בוחנים לכל הפרש אפשרי בין שני מיקומים עוקבים (1 עד 37) את כמות ההופעות שלו בהגרלות זוכות.
+									<br>
+									<div class="redBoldText">TIP:</div> לחץ על המספר כדי לראות את אחוז המיקומים שלו בהגרלות
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option5" onclick="loadIntoSection3('5')">הפרשי מספרים במיקומים עוקבים חמים ביותר לפי מיקום</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בהסתכלות על ההגרלות כממוינות, בוחנים לכל <u>מיקום</u> (1 עד 6) ולכל הפרש אפשרי בין שני מיקומים עוקבים (1 עד 32) את כמות ההופעות שלו <u>במיקום זה</u> בהגרלות זוכות.
+									<br>הפרש <div class="redBoldText">במיקום הראשון</div> הוא הפרש בין שני מספרים קטנים ביותר בהגרלה
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option6" onclick="loadIntoSection3('6')">סכומי מספרים חמים ביותר</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים את סכומי מספרי הגרלות זוכות וכמותי הופעתם
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option7" onclick="loadIntoSection3('7')">כמות מספרים זוגיים חמה ביותר (ולפי מיקום)</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים את כמות המספרים הזוגיים בהגרלות זוכות
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option8" onclick="loadIntoSection3('8')">כמות חזרות על מספרים בהגרלות</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> תוכל לראות למשל אם יש הגרלה שזכתה פעמיים - בלי המספר החזק (חזרה על 6 מספרים) או אם יש כמות של מספרים שהיו בכמה הגרלות זוכות, וכמה פעמים זה קרה.
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option9" onclick="loadIntoSection3('9')">מספרים שלא הופיעו לאחרונה</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים לכל מספר (1 עד 37) לפני כמה הגרלות הוא הופיע בפעם האחרונה
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option top">
+							<div id="option10" onclick="loadIntoSection3('10')">מספרים שלא הופיעו לאחרונה לפי מיקום</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בהסתכלות על ההגרלות כממוינות, בוחנים לכל מיקום (1 עד 6) ולכל מספר (1 עד 37) לפני כמה הגרלות הוא הופיע פעם אחרונה במיקום זה.
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option bottom">
+							<div id="option11" onclick="loadIntoSection3('11')">מספרים חזקים חמים ביותר</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים לכל מספר חזק (1 עד 7) את כמות ההופעות שלו בהגרלות זוכות.
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option bottom">
+							<div id="option12" onclick="loadIntoSection3('12')">מספרים חזקים שלא הופיעו לאחרונה</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									<div class="redBoldText">במודל זה</div> בוחנים לכל מספר חזק (1 עד 7) לפני כמה הגרלות הוא הופיע בפעם האחרונה
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option bottom">
+							<div id="option13" onclick="loadIntoSection3('13')">תוצאות של הגרלות זוכות</div>
+						</div>
+						<div class="option bottom">
+							<div id="option14" onclick="loadIntoSection3('14')">ויזואליזציה של מספרי הגרלות זוכות לפי מיקום</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									בהסתכלות על ההגרלות כממוינות, מוצגות לכל מיקום (1 עד 6) תוצאות מספרי הגרלות זוכות במיקום זה לאורך הזמן.
+									<br>
+									<div class="redBoldText">TIP:</div> תסמן בעכבר את האזור בגרף שתרצה להתמקד בו
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+						<div class="option bottom">
+							<div id="option15" onclick="loadIntoSection3('15')">ויזואליזציה של מספרים נוספים בהגרלות זוכות</div>
+							<div class="explanationContainer">
+								<span class="tooltiptext">
+									מוצגות תוצאות מספר חזק בההגרלות זוכות לאורך הזמן.
+									<br>
+									<div class="redBoldText">TIP:</div> תסמן בעכבר את האזור בגרף שתרצה להתמקד בו
+								</span>
+								<div class="explanationIcon"></div>
+								<div class="explanation">הסבר</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="include3" style="display: none">
+		<div class="content">
+			<div class="section section3" id="section3">
+				<div class="optionsContainer" id="optionsContainer"></div>
+				<div class="footer"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
