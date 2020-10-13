@@ -74,6 +74,7 @@ function shrinkHeader() {
 	let header = document.getElementById('header');
 	header.style.fontSize = '32px';
 	header.style.height = '42px';
+	document.getElementById("email").style.display = "none";
 	headerLogo.style.marginRight = '10px';
 	headerLogo.style.textAlign = 'right';
 	content.style.paddingTop = '42px';
@@ -87,8 +88,9 @@ function expandHeader() {
 	let content = document.getElementById('content');
 	let header = document.getElementById('header');
 	let headerLogo = document.getElementById('headerLogo');
-	header.style.fontSize = '76px';
+	header.style.fontSize = '72px';
 	header.style.height = '100px';
+	document.getElementById("email").style.display = "";
 	headerLogo.style.marginRight = '300px';
 	headerLogo.style.textAlign = null;
 	content.style.paddingTop = '100px';
