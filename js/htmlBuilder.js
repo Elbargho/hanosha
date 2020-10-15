@@ -482,7 +482,7 @@ function createOptionContainer(optNum) {
 		checkchnc.appendChild(chanceResult);
 		optionContainer.appendChild(checkchnc);
 	}
-	let statsContainer = createElement("div", "option" + optNum + "StatsContainer");
+	let statsContainer = createElement("div", null, "option" + optNum + "StatsContainer");
 	if (optNum == 13) {
 		let opts = ["", 10, 20, 50, 100, 200, 500, 1000, "כל התוצאות"];
 		let tbshow = createElement("div", "tableRowsNum", "tableRowsNum" + optNum);
