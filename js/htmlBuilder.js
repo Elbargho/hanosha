@@ -713,6 +713,7 @@ function addToChart(optNum, label) {
 		chartContainer.remove();
 	} else {
 		optionContainer = document.getElementById("option" + optNum + "StatsContainer");
+		console.log(optionContainer, optNum);
 		dataPoints = extraChart(optNum, label);
 		chartContainer = document.createElement('div');
 		chartContainer.setAttribute('id', 'chart' + id + 'Container');

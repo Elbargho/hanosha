@@ -1,0 +1,14 @@
+from PIL import Image
+im = Image.open("stats-icon2.png")
+pixels = im.load()
+width, height = im.size
+print(pixels[0,0])
+
+''' (0, 0, 0, 0): transparent'''
+''' (255, 255, 255, 255): white'''
+for i in range(width):
+    for j in range(height):
+        if(pixels[i,j] == (255, 255, 255, 255)):
+            pixels[i,j] = (0,0,0,0)
+
+im.save("stats-icon2.png")
