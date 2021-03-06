@@ -497,7 +497,7 @@ function createOptionContainer(optNum) {
 				opt.id = "emptyOpt";
 			} else if (i == 1) {
 				opt.selected = true;
-			} else if (i == 9) {
+			} else if (i == 8) {
 				opt.setAttribute("value", "all");
 			}
 			opt.innerHTML = opts[i];
